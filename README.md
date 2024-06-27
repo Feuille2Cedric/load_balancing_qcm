@@ -148,4 +148,63 @@ Answer to the load_balancing module QCM
     - Justification : La translation d'adresse peut solliciter davantage le répartiteur à cause de la surcharge de la translation.
 
 30. La couche du noyau Linux qui gère la répartition de charge s'appelle LVS (Linux Virtual Server).
-    - **V
+    - **Vrai**
+    - Justification : La commande suivante permet de démarrer automatiquement, au démarrage du système, le service de gestion des interfaces réseaux :
+    - ```bash
+      prompt ~ # systemctl enable systemd-networkd
+      ```
+
+31. La commande suivante formate l'image disque myVM.raw avec un système de fichier Windows :
+    ```bash
+      prompt ~ # mkfs.ext4 -F myVM.raw
+    ```
+    - **Faux**
+    - Justification : La commande mkfs.ext4 formate le disque avec un système de fichiers ext4, qui est un système de fichiers Linux, et non Windows.
+
+32. Keepalive est un service Linux qui peut, entre autre, ajouter une @IP virtuelle au répartiteur de charge.
+    - **Vrai**
+    - Justification : Keepalived est un service Linux qui permet, entre autres, de gérer des adresses IP virtuelles et d'assurer la haute disponibilité en redirigeant le trafic vers des serveurs en bonne santé.
+
+33. Le fichier XML de configuration d'une VM sous Libvirt permet de définir les @IP de toutes les interfaces réseau de la VM.
+    - **Faux**
+    - Justification : Le fichier XML de configuration d'une VM sous Libvirt définit la configuration de la VM, mais ne spécifie pas directement les adresses IP des interfaces réseau. Celles-ci sont généralement configurées au niveau du système d'exploitation invité.
+
+34. La commande fdisk permet, entre autre, de modifier le type d'une partition.
+    - **Vrai**
+    - Justification : La commande fdisk permet de créer, supprimer, modifier et gérer les partitions sur un disque, y compris le type de partition.
+
+35. La commande suivante diminue l'image disque myVM.raw de 4Go :
+    ```bash
+    prompt ~ # fallocate -l 4G myVM.raw
+    ```
+    - **Faux**
+    - Justification : La commande fdisk permet de créer, supprimer, modifier et gérer les partitions sur un disque, y compris le type de partition.
+
+36. Keepalive monitore l'état des serveurs grâce à l'envoi d'un ping qui sert de battement de cœur.
+    - **Vrai**
+    - Justification : Keepalived utilise des pings pour surveiller l'état des serveurs et s'assurer qu'ils sont en ligne et disponibles, ce qui sert de "battement de cœur".
+
+37. Le fichier /etc/systemd/network/brlan.network permet le configuration réseau de l'interface pont brlan.
+    - **Vrai**
+    - Justification : Le fichier /etc/systemd/network/brlan.network est utilisé pour configurer les interfaces réseau lorsqu'on utilise systemd-networkd pour gérer le réseau sous Linux.
+
+38. La commande suivante permet la création d'une machine virtuelle de manière persistante dans Libvirt (elle sera toujours visible après son extinction) :
+    ```bash
+    prompt ~ # virsh create myVM.xml
+    ```
+    - **Faux**
+    - Justification : La commande virsh create myVM.xml crée et démarre une machine virtuelle à partir du fichier de configuration, mais elle n'est pas persistante (elle disparaît après l'arrêt). Pour créer une VM de manière persistante, il faut utiliser virsh define myVM.xml.
+
+39. La commande suivante permet de lister toutes les machines virtuelles, même celles qui ne sont pas démarrées :
+    ```bash
+    prompt ~ # virsh list
+    ```
+    - **Faux**
+    - Justification : La commande virsh list sans options ne liste que les machines virtuelles en cours d'exécution. Pour lister toutes les machines, même celles qui sont arrêtées, il faut utiliser virsh list --all.
+
+40. La commande suivante permet de démarrer automatiquement, au démarrage du système, le service de gestion des interfaces réseaux :
+    ```bash
+    prompt ~ # systemctl enable systemd-networkd
+    ```
+    - **Vrai**
+    - Justification : Cette commande crée des liens symboliques dans les répertoires d'activation des services au démarrage, assurant ainsi que systemd-networkd soit démarré automatiquement lors du boot du système.
