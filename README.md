@@ -1,7 +1,9 @@
 # load_balancing_qcm
 Answer to the load_balancing module QCM
 
-### Corrigé des Réponses Vrai/Faux avec Justifications et Adaptations
+### Corrigé des Réponses Vrai/Faux avec Justifications et Adaptations (Quelques questions non répondues car pas sûr)
+
+Tout commit est le bienvenue si il y a une erreur dans les réponses ***(respectez le template de réponses)***
 
 1. Le fichier `/etc/systemd/network/brlan.netdev` permet la création de l'interface pont `brlan`.
    - **Vrai**
@@ -12,16 +14,16 @@ Answer to the load_balancing module QCM
    - Justification : `/etc/resolv.conf` est utilisé pour configurer les serveurs DNS, pas les serveurs DHCP.
 
 3. La commande `mkinitcpio` permet de générer le chargeur du système de démarrage sous Linux.
-   - **Faux**
-   - Justification : `mkinitcpio` est utilisé pour générer un initramfs, pas pour créer un chargeur de démarrage. La commande est essentielle pour la configuration correcte du démarrage sur un système Arch Linux.
+   - ** JSP **
+   - Justification : 
 
 4. Le fichier XML de configuration d'une VM sous Libvirt permet de définir les @MAC de toutes les interfaces réseau de la VM.
    - **Vrai**
    - Justification : Le fichier XML de Libvirt permet de configurer les adresses MAC des interfaces réseau, ce qui est important pour une configuration réseau statique et stable dans un environnement virtuel.
 
 5. QEMU est un hyperviseur basé sur KVM.
-   - **Vrai**
-   - Justification : QEMU peut utiliser KVM pour la virtualisation matérielle, permettant une performance proche de celle du matériel natif pour les VMs.
+   - **Faux**
+   - Justification : QEMU n'est pas un hyperviseur basé sur KVM, mais il peut être utilisé conjointement avec KVM pour fournir une solution complète de virtualisation.
 
 6. Keepalive est un service Linux permettant d'avoir 2 répartiteurs de charge en mode MASTER / MASTER.
    - **Faux**
@@ -47,8 +49,8 @@ Answer to the load_balancing module QCM
     - Justification : `Cryptsetup` est utilisé pour configurer et gérer le chiffrement de partitions avec LUKS, essentiel pour la sécurité des données sur les disques.
 
 11. Dans le cas de la répartition de charge par routage direct, il faut ajouter l'@IP du répartiteur de charge aux interfaces LAN de chacun des serveurs.
-    - **Vrai**
-    - Justification : En répartition de charge par routage direct, les serveurs doivent accepter les requêtes destinées à l'adresse IP du répartiteur, ce qui est crucial pour la configuration correcte des clusters de serveurs.
+    - **Faux**
+    - Justification : Dans le cas de la répartition de charge par routage direct (Direct Routing), il n'est pas nécessaire d'ajouter l'adresse IP du répartiteur de charge (load balancer) aux interfaces LAN de chacun des serveurs. En fait, cela pourrait causer des problèmes de routage et de réseau.
 
 12. La commande suivante permet d'ajouter une @IP à l'interface eth0 d'une machine Linux :
     ```bash
@@ -59,7 +61,7 @@ Answer to the load_balancing module QCM
 
 13. Libvirt est une surcouche à KVM (ainsi qu'à d'autres hyperviseurs) qui permet de faciliter son utilisation grâce à la commande `virsh`.
     - **Vrai**
-    - Justification : Libvirt facilite la gestion des hyperviseurs comme KVM via des commandes comme `virsh`, rendant la gestion des machines virtuelles plus simple et efficace.
+    - Justification : Libvirt est une surcouche logicielle qui simplifie l'utilisation et la gestion des hyperviseurs, y compris KVM, Xen, QEMU, VMware, Hyper-V et d'autres. Libvirt fournit une interface unifiée et des outils pour gérer les machines virtuelles et les réseaux virtualisés. La commande virsh est un utilitaire en ligne de commande fourni par Libvirt qui permet de gérer ces machines virtuelles de manière simplifiée.
 
 14. La répartition de charge par translation d'adresse nécessite d'accepter cette translation en mettant à jour le fichier `ip_forward` comme suit :
     ```bash
@@ -102,8 +104,8 @@ Answer to the load_balancing module QCM
     ```bash
     prompt ~ # ipvsadm-save -n > /usr/local/etc/lvs/lvsnat.conf
     ```
-    - **Vrai**
-    - Justification : La commande enregistre la configuration, mais un script supplémentaire est nécessaire pour recharger la configuration après un redémarrage.
+    - **Faux**
+    - Justification : La commande ipvsadm-save -n > /usr/local/etc/lvs/lvsnat.conf enregistre effectivement la configuration actuelle d'IPVS dans le fichier spécifié (/usr/local/etc/lvs/lvsnat.conf). Cependant, cette commande seule ne garantit pas que la configuration sera rechargée automatiquement après un redémarrage de la machine..
 
 22. La configuration de `ipvsadm` est persistante après un redémarrage de la machine.
     - **Faux**
@@ -162,8 +164,8 @@ Answer to the load_balancing module QCM
     - Justification : La commande mkfs.ext4 formate le disque avec un système de fichiers ext4, qui est un système de fichiers Linux, et non Windows.
 
 32. Keepalive est un service Linux qui peut, entre autre, ajouter une @IP virtuelle au répartiteur de charge.
-    - **Vrai**
-    - Justification : Keepalived est un service Linux qui permet, entre autres, de gérer des adresses IP virtuelles et d'assurer la haute disponibilité en redirigeant le trafic vers des serveurs en bonne santé.
+    - **Faux**
+    - Justification : Keepalived est un service Linux utilisé pour la haute disponibilité et la répartition de charge. Il peut gérer des adresses IP virtuelles et est souvent utilisé en conjonction avec des solutions de répartition de charge comme LVS (Linux Virtual Server) pour assurer la haute disponibilité..
 
 33. Le fichier XML de configuration d'une VM sous Libvirt permet de définir les @IP de toutes les interfaces réseau de la VM.
     - **Faux**
@@ -181,8 +183,8 @@ Answer to the load_balancing module QCM
     - Justification : La commande fdisk permet de créer, supprimer, modifier et gérer les partitions sur un disque, y compris le type de partition.
 
 36. Keepalive monitore l'état des serveurs grâce à l'envoi d'un ping qui sert de battement de cœur.
-    - **Vrai**
-    - Justification : Keepalived utilise des pings pour surveiller l'état des serveurs et s'assurer qu'ils sont en ligne et disponibles, ce qui sert de "battement de cœur".
+    - **Faux**
+    - Justification : Keepalived est un logiciel utilisé pour la haute disponibilité et la répartition de charge, souvent en conjonction avec LVS (Linux Virtual Server). Bien que Keepalived utilise le protocole VRRP (Virtual Router Redundancy Protocol) pour la gestion des adresses IP virtuelles et le basculement, il ne se contente pas d'envoyer des pings comme mécanisme de battement de cœur (heartbeat) pour surveiller l'état des serveurs..
 
 37. Le fichier /etc/systemd/network/brlan.network permet le configuration réseau de l'interface pont brlan.
     - **Vrai**
